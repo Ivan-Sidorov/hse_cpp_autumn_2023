@@ -14,7 +14,9 @@ public:
 };
 ```
 
-`Makefile` содержит цель-тест, для запуска выполнить команду:
+`Makefile` содержит цель-тест:
 ```bash
 make
+make test
+make clean
 ```

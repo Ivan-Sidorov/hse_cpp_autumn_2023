@@ -1,21 +1,21 @@
 #include "Allocator.hpp"
 
 void Allocator::MakeAllocator(size_t max_size) {
-    delete[] data_;
+    delete[] this->data_;
 
-    char* data = new char[max_size];
-    offset_ = 0;
+    this->data_ = new char[max_size];
+    this->offset_ = 0;
     this->max_size_ = max_size;
 }
 
 char* Allocator::Alloc(size_t size) {
-    if (offset_ + size > this->max_size_) {
+    if ((this->offset_ + size > this->max_size_) || (size == 0)) {
         return nullptr;
     }
-    offset_ += size;
-    return data_ + size;
+    this->offset_ += size;
+    return this->data_ + size;
 }
 
-void Allocator::Reset() { offset_ = 0; }
+void Allocator::Reset() { this->offset_ = 0; }
 
-Allocator::~Allocator() { delete[] data_; }
+Allocator::~Allocator() { delete[] this->data_; }
