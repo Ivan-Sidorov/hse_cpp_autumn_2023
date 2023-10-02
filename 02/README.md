@@ -4,7 +4,7 @@
 
 Класс содержит следующие методы:
 ```c++
-lass TokenParser {
+class TokenParser {
    public:
     TokenParser()
         : start_callback_([]() {}),
