@@ -29,5 +29,6 @@ class TokenParser {
     std::function<void()> end_callback_;
     std::function<void(uint64_t)> digit_callback_;
     std::function<void(const std::string &)> string_callback_;
+    // Разделители токенов
     std::set<char> separators = {' ', '\n', '\t'};
 };
