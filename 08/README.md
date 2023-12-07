@@ -9,7 +9,7 @@ result = cjson.loads(json_str)
 # {"abc": "456", "123f4": 12}
 
 json_dict = {"abc": "456", "123f4": 12}
-result = cjson.dumps(json_str)
+result = cjson.dumps(json_dict)
 # '{"abc": "456", "123f4": 12}'
 ```
 
