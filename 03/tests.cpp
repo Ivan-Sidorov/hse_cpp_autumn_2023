@@ -20,6 +20,7 @@ TEST(MatrixTest, ComparisonTest) {
     Matrix matrix1(rows, cols);
     Matrix matrix2(rows, cols);
     Matrix matrix3(rows, cols);
+    Matrix matrix4(2, 2);
 
     for (size_t i = 0; i < rows; ++i)
         for (size_t j = 0; j < cols; ++j) {
@@ -27,6 +28,7 @@ TEST(MatrixTest, ComparisonTest) {
             matrix2[i][j] = i + j;
         }
 
+    EXPECT_THROW({ bool res = matrix1 == matrix4; }, std::out_of_range);
     ASSERT_EQ(matrix1 == matrix2, true);
     ASSERT_EQ(matrix1 != matrix3, true);
 }

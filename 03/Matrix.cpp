@@ -3,6 +3,9 @@
 void Matrix::ProxyRow::setRow(size_t cols) {
     pcols_ = cols;
     this->pdata_ = new int32_t[cols];
+    for (size_t i = 0; i < cols; ++i) {
+        this->pdata_[i] = 0;
+    }
 }
 
 Matrix::ProxyRow& Matrix::operator[](size_t i) {
@@ -73,7 +76,7 @@ Matrix Matrix::operator+(Matrix& other) {
 bool Matrix::operator==(const Matrix& other) const {
     // сразу проверяем одинаковые ли размеры у матрицы
     if (this->rows_ != other.rows_ || this->cols_ != other.cols_) {
-        return false;
+        throw std::out_of_range("Matrices have different sizes");
     }
     for (size_t i = 0; i < this->rows_; ++i)
         for (size_t j = 0; j < this->cols_; ++j) {
